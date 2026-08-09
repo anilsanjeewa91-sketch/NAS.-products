@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAS Products | Premium Footwear Since 2013</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-red: #ff001b;
+            --dark-red: #cc0016;
+            --black-bg: #0d0d0d;
+            --card-bg: #181818;
+            --text-light: #f5f5f5;
+            --text-muted: #aaaaaa;
+            --border-color: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--black-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: rgba(13, 13, 13, 0.95);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            border-radius: 4px;
+        }
+
+        .brand-text {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .brand-text span {
+            color: var(--primary-red);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .header-contact {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .phone-btn {
+            background: var(--primary-red);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.3s;
+        }
+
+        .phone-btn:hover {
+            background: var(--dark-red);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(13, 13, 13, 0.8), rgba(13, 13, 13, 0.9)), 
+                        url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=1200') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .tagline {
+            color: var(--primary-red);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 14px 32px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--dark-red);
+            transform: translateY(-2px);
+        }
+
+        /* Container Section */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-red);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 0, 27, 0.15);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: var(--primary-red);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin: 5px 0 10px 0;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .order-card-btn {
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--primary-red);
+            color: var(--primary-red);
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .order-card-btn:hover {
+            background: var(--primary-red);
+            color: white;
+        }
+
+        /* Online Order Form Section */
+        .order-section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--black-bg);
+            border: 1px solid var(--border-color);
+            color: white;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-red);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--dark-red);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .contact-card a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: block;
+            margin-top: 5px;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary-red);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050505;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .header-contact {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-container">
+                <!-- Replace 'logo.jpg' with your actual image file path -->
+                <img src="logo.jpg" alt="NAS Products Logo" class="logo-img" onerror="this.style.display='none'">
+                <div class="brand-text">NAS <span>PRODUCTS</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#order">Order Online</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <div class="header-contact">
+                <a href="tel:0773259107" class="phone-btn"><i class="fas fa-phone"></i> 077 325 9107</a>
+                <a href="tel:0783115176" class="phone-btn"><i class="fas fa-phone"></i> 078 311 5176</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="tagline">SINCE 2013 • REGISTERED TRADEMARK</div>
+            <h1>Quality & Comfort In Every Step</h1>
+            <p>Discover Sri Lanka's finest handcrafted and manufactured footwear. Order your pair online today with fast island-wide delivery.</p>
+            <a href="#order" class="cta-btn">Order Online Now</a>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="container" id="products">
+        <div class="section-title">
+            <h2>අපගේ පාවහන් එකතුව</h2>
+        </div>
+        <div class="products-grid">
+            
+            <!-- Product 1 (image_1.png) -->
+            <div class="product-card">
+                <img src="image_1.png" alt="පාවහන් 1" class="product-img">
+                <div class="product-info">
+                    <span class="product-category">කාන්තා සෙරෙප්පු</span>
+                    <h3 class="product-title">වර්ණවත් කාන්තා සෙරෙප්පු</h3>
+                    <div class="product-price">රු. 2,500.00</div>
+                    <button class="order-card-btn" onclick="selectProduct('වර්ණවත් කාන්තා සෙරෙප්පු')">Select & Order</button>
+                </div>
+            </div>
+
+            <!-- Product 2 (image_2.png) -->
+            <div class="product-card">
+                <img src="image_2.png" alt="පාවහන් 2" class="product-img">
+                <div class="product-info">
+                    <span class="product-category">කාන්තා සෙරෙප්පු</span>
+                    <h3 class="product-title">එදිනෙදා භාවිතයට කාන්තා සෙරෙප්පු</h3>
+                    <div class="product-price">රු. 1,800.00</div>
+                    <button class="order-card-btn" onclick="selectProduct('එදිනෙදා භාවිතයට කාන්තා සෙරෙප්පු')">Select & Order</button>
+                </div>
+            </div>
+
+            <!-- Product 3 (image_3.png) -->
+            <div class="product-card">
+                <img src="image_3.png" alt="පාවහන් 3" class="product-img">
+                <div class="product-info">
+                    <span class="product-category">පිරිමි සෙරෙප්පු</span>
+                    <h3 class="product-title">සම් පිරිමි සෙරෙප්පු</h3>
+                    <div class="product-price">රු. 3,200.00</div>
+                    <button class="order-card-btn" onclick="selectProduct('සම් පිරිමි සෙරෙප්පු')">Select & Order</button>
+                </div>
+            </div>
+
+            <!-- Product 4 (image_4.png) -->
+            <div class="product-card">
+                <img src="image_4.png" alt="පාවහන් 4" class="product-img">
+                <div class="product-info">
+                    <span class="product-category">කාන්තා සෙරෙප්පු</span>
+                    <h3 class="product-title">ලස්සන කාන්තා සෙරෙප්පු</h3>
+                    <div class="product-price">රු. 2,900.00</div>
+                    <button class="order-card-btn" onclick="selectProduct('ලස්සන කාන්තා සෙරෙප්පු')">Select & Order</button>
+                </div>
+            </div>
+
+            <!-- Product 5 (image_5.png) -->
+            <div class="product-card">
+                <img src="image_5.png" alt="පාවහන් 5" class="product-img">
+                <div class="product-info">
+                    <span class="product-category">කාන්තා සෙරෙප්පු</span>
+                    <h3 class="product-title">කාන්තා සෙරෙප්පු විශේෂ මාදිලිය</h3>
+                    <div class="product-price">රු. 3,500.00</div>
+                    <button class="order-card-btn" onclick="selectProduct('කාන්තා සෙරෙප්පු විශේෂ මාදිලිය')">Select & Order</button>
+                </div>
+            </div>
+
+            <!-- Product 6 (image_6.png) -->
+            <div class="product-card">
+                <img src="image_6.png" alt="පාවහන් 6" class="product-img">
+                <div class="product-info">
+                    <span class="product-category">කාන්තා සෙරෙප්පු</span>
+                    <h3 class="product-title">සරල කාන්තා සෙරෙප්පු</h3>
+                    <div class="product-price">රු. 2,100.00</div>
+                    <button class="order-card-btn" onclick="selectProduct('සරල කාන්තා සෙරෙප්පු')">Select & Order</button>
+                </div>
+            </div>
+
+            <!-- Product 7 (image_7.png) -->
+            <div class="product-card">
+                <img src="image_7.png" alt="පාවහන් 7" class="product-img">
+                <div class="product-info">
+                    <span class="product-category">කාන්තා සෙරෙප්පු</span>
+                    <h3 class="product-title">පෙළ ගැසුණු කාන්තා සෙරෙප්පු</h3>
+                    <div class="product-price">රු. 2,700.00</div>
+                    <button class="order-card-btn" onclick="selectProduct('පෙළ ගැසුණු කාන්තා සෙරෙප්පු')">Select & Order</button>
+                </div>
+            </div>
+
+            <!-- Product 8 (image_8.png) -->
+            <div class="product-card">
+                <img src="image_8.png" alt="පාවහන් 8" class="product-img">
+                <div class="product-info">
+                    <span class="product-category">කාන්තා සෙරෙප්පු</span>
+                    <h3 class="product-title">ලස්සනට පෙළ ගැසුණු කාන්තා සෙරෙප්පු</h3>
+                    <div class="product-price">රු. 3,000.00</div>
+                    <button class="order-card-btn" onclick="selectProduct('ලස්සනට පෙළ ගැසුණු කාන්තා සෙරෙප්පු')">Select & Order</button>
+                </div>
+            </div>
+
+            <!-- Product 9 (image_9.png) -->
+            <div class="product-card">
+                <img src="image_9.png" alt="පාවහන් 9" class="product-img">
+                <div class="product-info">
+                    <span class="product-category">කාන්තා සෙරෙප්පු</span>
+                    <h3 class="product-title">කාන්තා හීල්ස් සෙරෙප්පු</h3>
+                    <div class="product-price">රු. 4,500.00</div>
+                    <button class="order-card-btn" onclick="selectProduct('කාන්තා හීල්ස් සෙරෙප්පු')">Select & Order</button>
+                </div>
+            </div>
+
+            <!-- Product 10 (image_10.png) -->
+            <div class="product-card">
+                <img src="image_10.png" alt="පාවහන් 10" class="product-img">
+                <div class="product-info">
+                    <span class="product-category">කාන්තා සෙරෙප්පු</span>
+                    <h3 class="product-title">හීල්ස් සහිත ලස්සන කාන්තා සෙරෙප්පු</h3>
+                    <div class="product-price">රු. 4,200.00</div>
+                    <button class="order-card-btn" onclick="selectProduct('හීල්ස් සහිත ලස්සන කාන්තා සෙරෙප්පු')">Select & Order</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Online Order Form Section -->
+    <section class="container" id="order">
+        <div class="section-title">
+            <h2>Place Your Online Order</h2>
+        </div>
+        <div class="order-section">
+            <form id="orderForm" onsubmit="submitOrder(event)">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" placeholder="e.g. 077XXXXXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productSelect">Select Product *</label>
+                        <select id="productSelect" required>
+                            <option value="">-- Choose Footwear --</option>
+                            <option value="වර්ණවත් කාන්තා සෙරෙප්පු">වර්ණවත් කාන්තා සෙරෙප්පු - รุ. 2,500</option>
+                            <option value="එදිනෙදා භාවිතයට කාන්තා සෙරෙප්පු">එදිනෙදා භාවිතයට කාන්තා සෙරෙප්පු - รุ. 1,800</option>
+                            <option value="සම් පිරිමි සෙරෙප්පු">සම් පිරිමි සෙරෙප්පු - รุ. 3,200</option>
+                            <option value="ලස්සන කාන්තා සෙරෙප්පු">ලස්සන කාන්තා සෙරෙප්පු - รุ. 2,900</option>
+                            <option value="කාන්තා සෙරෙප්පු විශේෂ මාදිලිය">කාන්තා සෙරෙප්පු විශේෂ මාදිලිය - รุ. 3,500</option>
+                            <option value="සරල කාන්තා සෙරෙප්පු">සරල කාන්තා සෙරෙප්පු - รุ. 2,100</option>
+                            <option value="පෙළ ගැසුණු කාන්තා සෙරෙප්පු">පෙළ ගැසුණු කාන්තා සෙරෙප්පු - รุ. 2,700</option>
+                            <option value="ලස්සනට පෙළ ගැසුණු කාන්තා සෙරෙප්පු">ලස්සනට පෙළ ගැසුණු කාන්තා සෙරෙප්පු - รุ. 3,000</option>
+                            <option value="කාන්තා හීල්ස් සෙරෙප්පු">කාන්තා හීල්ස් සෙරෙප්පු - รุ. 4,500</option>
+                            <option value="හීල්ස් සහිත ලස්සන කාන්තා සෙරෙප්පු">හීල්ස් සහිත ලස්සන කාන්තා සෙරෙප්පු - รุ. 4,200</option>
+                            <option value="Custom Order">Other / Custom Request</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="shoeSize">Shoe Size (UK/EU) *</label>
+                        <select id="shoeSize" required>
+                            <option value="">-- Select Size --</option>
+                            <option value="UK 3 / EU 36">UK 3 / EU 36</option>
+                            <option value="UK 4 / EU 37">UK 4 / EU 37</option>
+                            <option value="UK 5 / EU 38">UK 5 / EU 38</option>
+                            <option value="UK 6 / EU 39">UK 6 / EU 39</option>
+                            <option value="UK 7 / EU 40">UK 7 / EU 40</option>
+                            <option value="UK 8 / EU 41">UK 8 / EU 41</option>
+                            <option value="UK 9 / EU 42">UK 9 / EU 42</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity *</label>
+                        <input type="number" id="quantity" min="1" value="1" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Delivery Address *</label>
+                    <textarea id="address" rows="3" placeholder="Enter complete address for delivery" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn"><i class="fab fa-whatsapp"></i> Send Order via WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="container" id="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Call Hotline 1</h3>
+                <a href="tel:0773259107">+94 77 325 9107</a>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Call Hotline 2</h3>
+                <a href="tel:0783115176">+94 78 311 5176</a>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-whatsapp"></i>
+                <h3>WhatsApp Direct</h3>
+                <a href="https://wa.me/94773259107" target="_blank">Chat on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 NAS Products®. All Rights Reserved. Footwear Manufacturer Since 2013.</p>
+    </footer>
+
+    <!-- JavaScript logic for sending orders to WhatsApp -->
+    <script>
+        function selectProduct(productName) {
+            document.getElementById('productSelect').value = productName;
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitOrder(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('fullName').value;
+            const phone = document.getElementById('phone').value;
+            const product = document.getElementById('productSelect').value;
+            const size = document.getElementById('shoeSize').value;
+            const quantity = document.getElementById('quantity').value;
+            const address = document.getElementById('address').value;
+
+            // Direct order message formatted for WhatsApp
+            const message = `*NEW ONLINE ORDER - NAS PRODUCTS*%0A%0A` +
+                            `*Name:* ${encodeURIComponent(name)}%0A` +
+                            `*Phone:* ${encodeURIComponent(phone)}%0A` +
+                            `*Product:* ${encodeURIComponent(product)}%0A` +
+                            `*Size:* ${encodeURIComponent(size)}%0A` +
+                            `*Quantity:* ${encodeURIComponent(quantity)}%0A` +
+                            `*Address:* ${encodeURIComponent(address)}`;
+
+            // Default primary WhatsApp number
+            const targetPhoneNumber = "94773259107";
+            const whatsappURL = `https://wa.me/${targetPhoneNumber}?text=${message}`;
+
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
